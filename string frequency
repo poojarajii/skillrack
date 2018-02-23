@@ -1,0 +1,57 @@
+import java.util.Scanner;
+public class Stringfreq {
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+        char c,ch;
+        char cc[]=new char[100];
+        int a[]=new int[100];
+       
+        String str=sc.nextLine();
+        int k=0,u=0;
+        int l=str.length();
+        for( c='A'; c<='z'; c++)
+        {
+            for(int j=0; j<l; j++)
+            {
+                ch = str.charAt(j);
+                if(ch == c)
+                {
+                    k++;
+                }
+            }
+            if(k>0)
+            {
+                cc[u]=c;
+                a[u]=k; 
+                u++; 
+            }
+        }
+        int m=0;
+        for(int i=0; i<u; i++)
+        {
+            if(a[i]>m)
+            {
+                m=a[i]; 
+            }
+        }
+       
+        int v=0;
+        while(v<m)
+        {
+            for(int i=0;i<u;i++)
+            {
+                for(int j=0;j<u;j++)
+                {
+                    if(a[i]==m)
+                    {
+                        System.out.println(cc[i]+""+m);
+                        a[i]=m+1; 
+                    }
+                }
+            }
+        m--;
+        }
+       
+    }
+    
+}
